@@ -1,5 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
+import { useState, useEffect } from 'react'
+
+function easeOutExpo(x: number): number {
+  return x === 1 ? 1 : 1 - Math.pow(2, -10 * x)
+}
 
 const style = {
   container: css`
@@ -15,24 +20,42 @@ const style = {
   `,
 }
 
+function CountUp(end: number, start = 0, duration = 2000) {
+  const [count, setCount] = useState(start)
+
+  useEffect(() => {
+    let currentNum = start
+    const frame = 1000 / 60
+    const interval = duration / frame
+    const counter = setInterval(() => {
+      const rate = easeOutExpo(++currentNum / interval)
+      const currentCount = Math.round(end * rate)
+      setCount(currentCount)
+
+      if (currentNum === interval) {
+        clearInterval(counter)
+      }
+    }, frame)
+  }, [end, start, duration])
+
+  return count
+}
+
 export default function Indicator() {
-  let travelerNum = 700
-  let reviewNum = 100
-  let itineraryNum = 470
-  // TODO: 애니메이션으로 숫자 증가 효과
-  travelerNum--
-  reviewNum--
-  itineraryNum--
+  const travelerNum = 700
+  const reviewNum = 100
+  const itineraryNum = 470
+
   return (
     <div css={style.container}>
       <div css={style.text}>
-        <strong>{travelerNum}만 명</strong>의 여행자
+        <strong>{CountUp(travelerNum)}만 명</strong>의 여행자
       </div>
       <div css={style.text}>
-        <strong>{reviewNum}만 개</strong>의 여행 리뷰
+        <strong>{CountUp(reviewNum)}만 개</strong>의 여행 리뷰
       </div>
       <div css={style.text}>
-        <strong>{itineraryNum}만 개</strong>의 여행 일정
+        <strong>{CountUp(itineraryNum)}만 개</strong>의 여행 일정
       </div>
     </div>
   )
