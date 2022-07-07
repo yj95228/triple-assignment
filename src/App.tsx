@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { css, keyframes } from '@emotion/react'
+import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
 
 import BadgeSection from './component/badge/BadgeSection'
@@ -22,19 +22,26 @@ const OuterContainer = styled.div`
   margin: 0px auto;
   position: relative;
 `
-const style = {
-  fadeAnimation: css`
-    animation: ${fadeKeyframes} 700ms ease-in;
-  `,
-}
+
+const FadeAnimation = styled('div')<{ delay: number }>`
+  opacity: 0;
+  animation: ${fadeKeyframes} 700ms ease-in-out forwards;
+  animation-delay: ${(props) => props.delay}ms;
+`
 
 function App() {
   return (
     <div className="App">
-      <OuterContainer css={style.fadeAnimation}>
-        <Logo />
-        <Indicator />
-        <BadgeSection />
+      <OuterContainer>
+        <FadeAnimation delay={0}>
+          <Logo />
+        </FadeAnimation>
+        <FadeAnimation delay={100}>
+          <Indicator />
+        </FadeAnimation>
+        <FadeAnimation delay={200}>
+          <BadgeSection />
+        </FadeAnimation>
       </OuterContainer>
     </div>
   )
