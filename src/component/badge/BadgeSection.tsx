@@ -1,4 +1,15 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
+
 import Badge from './Badge'
+
+const style = {
+  rowContainer: css`
+    display: flex;
+    flex-direction: row;
+    margin: 50px 0px 140px 623px;
+  `,
+}
 
 interface BadgeProps {
   imageAlt: string
@@ -20,7 +31,7 @@ export default function BadgeSection() {
     },
   ]
   return (
-    <>
+    <div css={style.rowContainer}>
       {badgeList?.map((badge, idx) => (
         <Badge
           key={idx}
@@ -29,6 +40,6 @@ export default function BadgeSection() {
           text={badge.text}
         />
       ))}
-    </>
+    </div>
   )
 }

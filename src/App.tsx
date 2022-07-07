@@ -22,11 +22,6 @@ const OuterContainer = styled.div`
   margin: 0px auto;
   position: relative;
 `
-const InnerContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: 50px 0px 140px 623px;
-`
 const style = {
   fadeAnimation: css`
     animation: ${fadeKeyframes} 700ms ease-in;
@@ -39,9 +34,7 @@ function App() {
       <OuterContainer css={style.fadeAnimation}>
         <Logo />
         <Indicator />
-        <InnerContainer>
-          <BadgeSection />
-        </InnerContainer>
+        <BadgeSection />
       </OuterContainer>
     </div>
   )
