@@ -29,14 +29,24 @@ const style = {
 interface BadgeProps {
   imageAlt: string
   imageSrc: string
-  text: string
+  store: string
+  award: string
 }
 
-export default function Badge({ imageAlt, imageSrc, text }: BadgeProps) {
+export default function Badge({
+  imageAlt,
+  imageSrc,
+  store,
+  award,
+}: BadgeProps) {
   return (
     <FlexContainer css={style.outerContainer}>
       <img css={style.badgeImg} alt={imageAlt} src={imageSrc} />
-      <FlexContainer css={style.badgeText}>{text}</FlexContainer>
+      <FlexContainer css={style.badgeText}>
+        {store}
+        <br />
+        {award}
+      </FlexContainer>
     </FlexContainer>
   )
 }
