@@ -4,8 +4,8 @@ import styled from '@emotion/styled'
 import Link from 'next/link'
 
 import BadgeSection from '../src/component/badge/BadgeSection'
-import Indicator from '../src/component/Indicator'
-import Logo from '../src/component/Logo'
+import Indicator from '../src/component/indicator/Indicator'
+import Logo from '../src/component/logo/Logo'
 
 const fadeKeyframes = keyframes`
   0% {
