@@ -22,7 +22,6 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
-          <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
           <meta
             name="msapplication-TileImage"
             content="https://triple.guide/icons/favicon-144x144.png"
@@ -34,7 +33,6 @@ class MyDocument extends Document {
           />
 
           <meta name="description" content="트리플 프론트엔드 과제입니다" />
-          <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
           <meta property="og:title" content="트리플 프론트엔드 과제" />
           <meta property="og:type" content="website" />
           <meta property="og:locale" content="ko_KR" />
