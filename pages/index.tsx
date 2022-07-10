@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { keyframes } from '@emotion/react'
 import styled from '@emotion/styled'
+import Link from 'next/link'
 
-import BadgeSection from './component/badge/BadgeSection'
-import Indicator from './component/Indicator'
-import Logo from './component/Logo'
+import BadgeSection from '../src/component/badge/BadgeSection'
+import Indicator from '../src/component/Indicator'
+import Logo from '../src/component/Logo'
 
 const fadeKeyframes = keyframes`
   0% {
@@ -31,7 +32,7 @@ const FadeAnimation = styled('div')<{ delay: number }>`
 
 function App() {
   return (
-    <div className="App">
+    <Link href="/">
       <OuterContainer>
         <FadeAnimation delay={0}>
           <Logo />
@@ -43,7 +44,7 @@ function App() {
           <BadgeSection />
         </FadeAnimation>
       </OuterContainer>
-    </div>
+    </Link>
   )
 }
 
