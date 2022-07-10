@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 
-import CountUp from '../utils/CountUp'
+import CountUp from '../../utils/CountUp'
 
 const style = {
   container: css`
